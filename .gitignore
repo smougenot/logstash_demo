@@ -1,0 +1,9 @@
+
+*.rpm
+*.log
+.vagrant
+.sinceDb*
+*.zip
+Server/elasticsearch-*
+*.war
+yumRepoCache/repodata
