@@ -1,15 +1,16 @@
-Projet d'Èvaluation des outils de gestion de log.
+Projet d'√©valuation des outils de gestion de log.
 
 Utilisation d'une VM via Vagrant.
 - instalelz virtualbox 4.1.18 https://www.virtualbox.org/wiki/Downloads
 - installez vagrant http://vagrantup.com/
-- lancez la comamnde shell suivante dans le rÈpertoire centOS6-64 : vagrant up
-- se conneter ‡ la box en lanÁant la commande : vagrant ssh
+- lancez la comamnde shell suivante dans le r√©pertoire centOS6-64 : vagrant up
+- se conneter √† la box en lan√ßant la commande : vagrant ssh
 NB : 
 - la commande 'vagrant destroy' effacera toute trace de la vm
-- le script 'yumRepoCache/init.sh' permet d'initialiser un cache local de RPM (pour Èviter les downloads ‡ la prochaine crÈation de VM)
+- le script 'yumRepoCache/init.sh' permet d'initialiser un cache local de RPM (pour √©viter les downloads √† la prochaine cr√©ation de VM)
 
-Des scripts sont prÈsents ‡ la racine pour initialiser les outils ‡ tÈlÈcharger
+Des scripts sont pr√©sents √† la racine pour initialiser les outils (t√©l√©charger et pour certains d√©ployer)
 - elasticSearchSetup.sh
 - jenkinsSetup.sh
+- logstash.sh
 

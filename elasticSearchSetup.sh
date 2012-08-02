@@ -5,7 +5,7 @@ ES_ROOT="elasticsearch-${ES_VERSION}"
 ES_PACKAGE="${ES_ROOT}.zip"
 ES_DIR="Server"
 if [ ! -d "$ES_DIR" ] ; then
-  echo "Creation du répertoire pour ES ${ES_DIR}"
+  echo "Creation du rÃ©pertoire pour ES ${ES_DIR}"
   mkdir -p ${ES_DIR}
 fi
 ES_DWNL_DEST="$ES_DIR/$ES_PACKAGE"
@@ -21,5 +21,5 @@ else
 fi
 
 echo "Pour lancer ElasticSearch : $ES_DIR/$ES_ROOT/bin/elasticsearch -f"
-echo "Pour accéder à l'UI : http://localhost:9200/_plugin/head/"
-echo "Pour accéder à Elasticsearch : http://localhost:9200/"
+echo "Pour accÃ©der Ã  l'UI : http://localhost:9200/_plugin/head/"
+echo "Pour accÃ©der Ã  Elasticsearch : http://localhost:9200/"
