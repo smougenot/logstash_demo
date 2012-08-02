@@ -9,13 +9,15 @@
 #INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
 #
 
-#
-# Timestamp
-CATALINA_TIMESTAMP %{MONTH:month} %{MONTHDAY:day}, %{YEAR:year} %{TIME:time} \w{2}
+MONTH_FR (janv.|févr.|mars|avr.|mai|juin|juil.|août|sept.|oct.|nov.|déc.|janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre?)
+TIME_AM_PM (AM|PM)
+#TIME_CT (?!<[0-9])%{HOUR}:%{MINUTE}(?::%{SECOND})(?![0-9]) (AM|PM)
+#début de ligne de log
+CATALINA_TIMESTAMP %{MONTH_FR:mois} %{MONTHDAY:jour}, %{YEAR:annee} %{TIME:heure} %{TIME_AM_PM:ampm}
 
 #
 # Logger (kind of channel identified by a name)
-CATALINA_LOGGER %{NOTSPACE:class} %{NOTSPACE:method}
+CATALINA_LOGGER %{NOTSPACE:logger}
 
 #
 # Log Levels

@@ -7,3 +7,4 @@
 Server/elasticsearch-*
 *.war
 yumRepoCache/repodata
+logstash/*.jar
