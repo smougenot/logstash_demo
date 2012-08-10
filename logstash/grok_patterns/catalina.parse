@@ -11,13 +11,17 @@
 
 MONTH_FR (janv.|févr.|mars|avr.|mai|juin|juil.|août|sept.|oct.|nov.|déc.|janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre?)
 TIME_AM_PM (AM|PM)
-#TIME_CT (?!<[0-9])%{HOUR}:%{MINUTE}(?::%{SECOND})(?![0-9]) (AM|PM)
+TIME_CT %{TIME} %{TIME_AM_PM}
 #début de ligne de log
-CATALINA_TIMESTAMP %{MONTH_FR:mois} %{MONTHDAY:jour}, %{YEAR:annee} %{TIME:heure} %{TIME_AM_PM:ampm}
+CATALINA_TIMESTAMP %{MONTH_FR:mois} %{MONTHDAY:jour}, %{YEAR:annee} %{TIME_CT:heure}
 
 #
 # Logger (kind of channel identified by a name)
 CATALINA_LOGGER %{NOTSPACE:logger}
+
+#
+# method (kind of channel identified by a name)
+CATALINA_METHOD %{NOTSPACE:method}
 
 #
 # Log Levels

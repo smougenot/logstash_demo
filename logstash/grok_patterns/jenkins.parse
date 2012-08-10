@@ -1,0 +1,39 @@
+# Use on catalina.log
+# 
+# sample log (no # in real life):
+#Jul 11, 2012 12:27:22 PM org.apache.catalina.core.AprLifecycleListener init
+#INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: #/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+#Jul 11, 2012 12:27:23 PM org.apache.coyote.AbstractProtocol init
+#INFO: Initializing ProtocolHandler ["http-bio-8080"]
+#Jul 11, 2012 12:27:23 PM org.apache.coyote.AbstractProtocol init
+#INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+#
+
+
+#début de ligne de log
+JENKINS_TIMESTAMP %{MONTH_FR:mois} %{MONTHDAY:jour}, %{YEAR:annee} %{TIME_CT:heure}
+
+#
+# Logger (kind of channel identified by a name)
+JENKINS_LOGGER %{NOTSPACE:logger}
+
+#
+# method (kind of channel identified by a name)
+JENKINS_METHOD %{NOTSPACE:method}
+
+#
+# Log Levels
+JENKINS_SEVERITY ([I|i]nfos|[G|g]rave|SEVERE|CONFIG|FINE|FINER|FINEST|[T|t]race|TRACE|[D|d]ebug|DEBUG|[N|n]otice|NOTICE|[I|i]nfo|INFO|[W|w]arn?(?:ing)?|WARN?(?:ING)?|[E|e]rr?(?:or)?|ERR?(?:OR)?|[C|c]rit?(?:ical)?|CRIT?(?:ICAL)?)
+
+#
+# First line
+JENKINS_FIRST %{JENKINS_TIMESTAMP:timestamp} %{JENKINS_LOGGER:logger} %{GREEDYDATA:message}
+
+#
+# Second line
+JENKINS_SECOND %{JENKINS_SEVERITY:level}: %{GREEDYDATA:message}
+
+#
+# Full log line (after a multiline filter
+JENKINS_FULL %{JENKINS_TIMESTAMP:timestamp} %{JENKINS_LOGGER:logger} %{JENKINS_SEVERITY:level}: %{GREEDYDATA:message}
+
